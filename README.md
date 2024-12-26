@@ -1,102 +1,57 @@
-# Data-Analyst-Python-Project
 # 🛌 Data Analysis of Human Health and Lifestyle – Insights for a Healthier Life
 ## Project Overview:
-- This project analyzes health and lifestyle data to identify factors affecting sleep quality and overall well-being. The analysis explores the impact of occupation, physical activity, and stress on sleep disorders, providing data-driven recommendations for healthier living.
+- This project aims to analyze health and lifestyle data to uncover trends affecting sleep quality and overall well-being. By exploring correlations between occupation types, physical activity, and sleep disorders, the project offers data-driven insights and recommendations for healthier living. The analysis focuses on identifying risk factors and providing solutions to mitigate the prevalence of sleep disorders such as Insomnia and Sleep Apnea.
 
 ## Objective:
 
-- Explore correlations between lifestyle factors (physical activity, stress, BMI) and health outcomes.
-Investigate the impact of different occupations on sleep quality and disorder prevalence.
-Develop insights and recommendations to mitigate sleep disorders and promote healthier lifestyles.
-
+- Perform comprehensive data analysis to understand the relationship between lifestyle factors (e.g., physical activity, stress, BMI) and health outcomes.
+- Investigate how different occupations impact sleep quality and disorder prevalence.
+- Develop recommendations based on empirical data to promote better health and quality of life.
+  
 ## Dataset:
 
 - Records: 374 entries
-- Features: 13 attributes including age, gender, occupation, sleep duration, quality of sleep, physical activity, stress, BMI, blood pressure, heart rate, daily steps, and sleep disorders.
-## 🛠️ Technologies & Tools:
-Python – Data analysis and scripting
-Pandas – Data manipulation and preprocessing
-Matplotlib – Data visualization and plotting
-📊 Data Preprocessing:
-python
-Copy code
-import pandas as pd  
-import matplotlib.pyplot as plt  
+- Features: 13 attributes including age, gender, occupation, sleep duration, sleep quality, physical activity level, stress, BMI, blood pressure, heart rate, daily steps, and sleep disorder classification.
+## Technologies & Tools:
 
-# Load Dataset  
-data = pd.read_csv("Sleep_health_and_lifestyle_dataset.csv")  
+- Python – Core programming language for data analysis.
+- Pandas – Data preprocessing, handling missing values, and aggregation.
+- Matplotlib – Visualization of patterns and trends through bar charts, pie charts, and histograms.
+  
+## Data Cleaning & Preprocessing:
 
-# Inspect the Data  
-print(data.info())  
-print(data.head())  
+- Handled missing data by filling null values with 'Normal' to ensure consistency.
+- Renamed and reformatted columns for improved readability and analysis.
+- Aggregated and grouped data by gender, occupation, and age to derive meaningful insights.
+  
+## Key Analyses Performed:
 
-# Fill Missing Values  
-data['Sleep Disorder'].fillna('Normal', inplace=True)  
-🔍 Key Analyses:
-1. Sleep Disorder Distribution (Pie Chart):
-python
-Copy code
-plt.figure(figsize=(8, 6))  
-data["Sleep Disorder"].value_counts().plot.pie(autopct="%.1f%%", startangle=90)  
-plt.title("Sleep Disorder Distribution")  
-plt.ylabel("")  
-plt.show()  
-🔸 Insight:
+**Sleep Disorder Distribution:** Visualized with pie charts showing the proportion of individuals affected by Sleep Apnea, Insomnia, and those without disorders.
+**Occupation Analysis:** Assessed the prevalence of sleep disorders across various occupations. Nurses and doctors exhibited higher instances of Sleep Apnea, while sales representatives were more prone to Insomnia.
+**Gender-based Analysis:** Analyzed gender-specific trends in sleep disorder occurrences, highlighting that females showed higher rates of Sleep Apnea compared to males.
+**Physical Activity Correlation:** Examined the relationship between physical activity levels and sleep quality, revealing that increased physical activity correlates with better sleep quality.
+**Stress & Sleep Quality:** Explored the connection between stress levels and sleep duration, indicating that individuals with lower stress levels had higher sleep quality scores.
 
-58.5% of individuals do not suffer from any sleep disorder.
-Sleep Apnea and Insomnia account for approximately 20.9% and 20.6% respectively.
-2. Occupation Analysis (Bar Chart):
-python
-Copy code
-occupation = data.groupby("Sleep Disorder")["Occupation"].value_counts().unstack()  
-occupation.plot(kind='bar', figsize=(10, 7))  
-plt.title("Sleep Disorders by Occupation")  
-plt.xlabel("Sleep Disorder")  
-plt.ylabel("Count")  
-plt.show()  
-🔸 Insight:
+# Key Findings:
 
-Nurses and doctors show a higher prevalence of Sleep Apnea.
-Salespersons are more likely to experience Insomnia compared to other professions.
-3. Gender-based Sleep Disorder Analysis (Bar Chart):
-python
-Copy code
-gender = data.groupby("Sleep Disorder")["Gender"].value_counts()  
-gender.plot(kind='bar', color=["#1f77b4", "#ff7f0e"], figsize=(8, 6))  
-plt.title("Sleep Disorder by Gender")  
-plt.xlabel("Sleep Disorder - Gender")  
-plt.ylabel("Count")  
-plt.show()  
-🔸 Insight:
+**Occupational Impact:** Health professionals (nurses and doctors) were more susceptible to sleep disorders, likely due to irregular working hours and high stress.
+**Gender Disparities:** Females showed higher vulnerability to Sleep Apnea, while Insomnia was more common in males.
+**Lifestyle Patterns:** Regular physical activity (≥60 minutes/day) and sufficient sleep (7-9 hours/day) significantly reduced the likelihood of sleep disorders.
+**High-risk Groups:** Individuals with high BMI and low daily step counts were more prone to experiencing sleep disturbances.
 
-Female participants show higher instances of Sleep Apnea, while males are more affected by Insomnia.
-4. Physical Activity and Sleep Quality Correlation:
-python
-Copy code
-plt.figure(figsize=(10, 5))  
-plt.scatter(data["Physical Activity Level"], data["Quality of Sleep"], color='skyblue')  
-plt.title("Physical Activity vs Quality of Sleep")  
-plt.xlabel("Physical Activity Level (minutes)")  
-plt.ylabel("Quality of Sleep")  
-plt.grid(True)  
-plt.show()  
-🔸 Insight:
+## Health Recommendations:
 
-Individuals with ≥60 minutes of physical activity exhibit higher sleep quality.
-📈 Health Insights and Recommendations:
-Maintain Adequate Sleep: Aim for 7-9 hours of sleep per day.
-Engage in Physical Activity: At least 60 minutes daily reduces the risk of sleep disorders.
-Manage Stress: Keep stress levels below 6 for better sleep quality.
-Healthy BMI: Maintain a normal BMI through diet and regular activity.
-Increase Daily Steps: Walk a minimum of 6000 steps/day to enhance overall health.
-🏆 Results:
-python
-Copy code
-healthy = data[(data["Quality of Sleep"] >= 7) &   
-               (data["Physical Activity Level"] >= 60) &   
-               (data["Stress Level"] <= 5)]  
-print(healthy.describe())  
-82 individuals met all the criteria for good health (adequate sleep, low stress, and sufficient physical activity).
-Average daily steps for this group: 7634 steps.
-Conclusion:
-This project highlights the importance of lifestyle factors in maintaining good health and preventing sleep disorders. The analysis provides actionable insights that can be applied to improve sleep quality, manage stress, and promote overall well-being.
+**Maintain Adequate Sleep:** Aim for 7-9 hours of sleep per day to improve mental and physical health.
+**Regular Physical Activity:** Engage in at least 60 minutes of physical activity daily to boost cardiovascular health and reduce sleep disorder risks.
+**Manage Stress:** Adopt stress management techniques to keep stress levels below 6 for improved sleep quality.
+**Monitor BMI:** Maintain a normal BMI by following a balanced diet and regular exercise routine.
+**Increase Daily Steps:** Walk a minimum of 6000 steps each day to enhance overall physical health and reduce sedentary behavior.
+
+## Visual Insights:
+
+- **Pie Chart:** Distribution of sleep disorders (Insomnia, Sleep Apnea, and Normal).
+- **Bar Chart:** Sleep disorder occurrences across occupations.
+- **Gender Analysis:** Comparison of sleep disorder prevalence between male and female participants.
+- 
+## Conclusion:
+- This project underscores the critical link between lifestyle choices, occupational stress, and health outcomes. By adopting the suggested recommendations, individuals can improve their sleep quality and overall well-being.
