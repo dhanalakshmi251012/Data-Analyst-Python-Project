@@ -8,10 +8,6 @@
 - Investigate how different occupations impact sleep quality and disorder prevalence.
 - Develop recommendations based on empirical data to promote better health and quality of life.
   
-## Dataset:
-
-- Records: 374 entries
-- Features: 13 attributes including age, gender, occupation, sleep duration, sleep quality, physical activity level, stress, BMI, blood pressure, heart rate, daily steps, and sleep disorder classification.
 ## Technologies & Tools:
 
 - Python – Core programming language for data analysis.
